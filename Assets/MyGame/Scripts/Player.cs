@@ -45,4 +45,8 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Update()
+    {
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -60f, 60f), 0, Mathf.Clamp(transform.position.z, -60f, 60f));
+    }
 }
