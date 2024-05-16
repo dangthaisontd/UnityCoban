@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fuel
   - Damage
+  - FinishGame
   layers:
   - Default
   - TransparentFX

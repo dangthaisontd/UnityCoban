@@ -7,9 +7,10 @@ public class Player : MonoBehaviour
     public float maxHealth = 100;
     public float fuelValue = 20;
     public float damageValue = 50;
+    public int roundValue = 1;
     public GameObject explusionPrefabs;
-    //prvate 
-    private float currentHealth = 0;
+    private  float currentHealth = 0;
+    private bool isGate = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,20 @@ public class Player : MonoBehaviour
         {
             DamageHealth(damageValue);
             InstantiateGame(other);
+            Destroy(other.gameObject);
+           
+        }
+        else if (other.tag == "FinishGame")
+        {
+            if (isGate == true)
+            {
+                GameManager.Instance.SetRound(roundValue);
+                isGate = false;
+            }
+        }
+        if(other.name=="Gate")
+        {
+            isGate = true;
         }
     }
     void InstantiateGame(Collider other)
@@ -35,6 +50,16 @@ public class Player : MonoBehaviour
     }
     private void DamageHealth(float health)
     {
+        /* if (currentHealth > 0)
+          {
+              currentHealth -= health;
+          }
+         if(currentHealth<=0)
+          {
+              currentHealth = 0;
+              Destroy(gameObject);
+          }
+        */
         if (currentHealth > 0)
         {
             currentHealth -= health;
@@ -47,6 +72,6 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -60f, 60f), 0, Mathf.Clamp(transform.position.z, -60f, 60f));
+      // transform.position = new Vector3(Mathf.Clamp(transform.position.x, -60f, 60f), 0, Mathf.Clamp(transform.position.z, -60f, 60f));
     }
 }
