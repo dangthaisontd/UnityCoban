@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public float fuel = 0;
-    public int roundNumber = 0;
-    public int  coinNumber = 0;
+    private float fuel = 0;
+    private int roundNumber = 0;
+    private  int  coinNumber = 0;
     // Start is called before the first frame update
     void Start()
     {
