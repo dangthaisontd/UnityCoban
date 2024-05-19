@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float fuelValue = 20;
     public float damageValue = 50;
     public int roundValue = 1;
+    public int coinValue = 1;
     public GameObject explusionPrefabs;
     private  float currentHealth = 0;
     private bool isGate = false;
@@ -38,6 +39,11 @@ public class Player : MonoBehaviour
                 GameManager.Instance.SetRound(roundValue);
                 isGate = false;
             }
+        }
+        else if(other.tag=="Coin")
+        {
+            GameManager.Instance.SetCoin(coinValue);
+            Destroy(other.gameObject);
         }
         if(other.name=="Gate")
         {

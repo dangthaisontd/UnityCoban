@@ -7,16 +7,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public float fuel = 0;
     public int roundNumber = 0;
+    public int  coinNumber = 0;
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     public void SetFuel(float fuel)
     {
@@ -25,5 +20,17 @@ public class GameManager : MonoBehaviour
     public void SetRound(int roundNumber)
     {
         this.roundNumber += roundNumber;
+    }
+    public void SetCoin(int coinNumber)
+    {
+        this.coinNumber += coinNumber;
+    }
+    public int GetCoin()
+    {
+        return coinNumber;
+    }
+    public int GetRound()
+    {
+        return roundNumber;
     }
 }
