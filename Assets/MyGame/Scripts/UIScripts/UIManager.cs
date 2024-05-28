@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         textCoin.text = DataManager.DataCoin.ToString();
-       // textRound.text = "0";
+        textFuel.text = DataManager.DataFuel.ToString();
         GameManager.Instance.CoinEvent.AddListener(UpdateCoin);
         GameManager.Instance.RoundEvent.AddListener(UpdateRound);
         GameManager.Instance.FuelEvent.AddListener(UpdateFuel);

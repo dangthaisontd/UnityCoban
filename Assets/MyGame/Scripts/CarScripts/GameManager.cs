@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         if(instance != null)
         {
-            DestroyImmediate(instance);
+            DestroyImmediate(gameObject);
             return;
         }
         instance = this;
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     {
         this.fuel += fuel;
         FuelEvent?.Invoke(this.fuel);
+        DataManager.DataFuel = this.fuel;
     }
     public void SetRound(int roundNumber)
     {
